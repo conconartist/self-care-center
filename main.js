@@ -1,7 +1,10 @@
 //query selectors:
-//var affirmationSelection
-//var mantraSelection
+//var form
+var affirmationSelection = document.querySelector("#affirmation");
+var mantraSelection = document.querySelector("#ma");
 //var receiveMessageBtn = document.querySelector()
+
+//var bell cookPotImage
 
 //event listeners:
 //receiveMessageBtn.addEventListener("click", displayMessage);
