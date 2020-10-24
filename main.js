@@ -22,7 +22,7 @@ var affirmations = [
   "I deserve to be healthy and feel good.",
   "I am full of energy and vitality and my mind is calm and peaceful.",
   "Every day I am getting healthier and stronger.",
-  "I honor my body by trusting the signals that it sends me."
+  "I honor my body by trusting the signals that it sends me.",
   "I manifest perfect health by making smart choices."
 ];
 
@@ -49,7 +49,7 @@ var message;
 //functions:
 
 function getRandomIndex(array) {
-  array[Math.floor(math.random()) * array.length];
+  Math.floor(Math.random() * array.length);
 }
 
 function displayMessage() {
