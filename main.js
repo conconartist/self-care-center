@@ -9,6 +9,7 @@ var addMessageBtn = document.querySelector(".message-add-button");
 
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
+addMessageBtn.addEventListener("click", addMessage);
 
 //global variables:
 var affirmations = [
@@ -71,6 +72,10 @@ function displayMessage() {
   } else if (message === "mantra") {
     messageDisplay.innerText = `${mantras[getRandomIndex(mantras)]}`
   }
+}
+
+function addMessage() {
+  
 }
 //add/remove
 function removeHide() {
