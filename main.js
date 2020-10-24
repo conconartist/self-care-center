@@ -4,7 +4,7 @@ var affirmationSelection = document.querySelector("#affirmation");
 var mantraSelection = document.querySelector("#mantra");
 var messageBtn = document.querySelector(".message-button");
 var messageDisplay = document.querySelector(".message");
-//var bell cookPotImage
+var bell = document.querySelector(".bell");
 
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
@@ -54,8 +54,8 @@ function getRandomIndex(array) {
 
 function generateMessage() {
   event.preventDefault();
-  hideBell();
   displayMessage();
+  hideBell();
 }
 
 function displayMessage() {
