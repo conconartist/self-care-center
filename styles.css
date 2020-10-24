@@ -71,6 +71,10 @@ label {
   width: 37%;
 }
 
+.message {
+  display: flex;
+  justify-content: center;
+}
 .bell {
   display: flex;
   flex-direction: column;
