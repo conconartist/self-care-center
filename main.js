@@ -70,6 +70,14 @@ function displayMessage() {
     messageDisplay.innerText = `${mantras[getRandomIndex(mantras)]}`
   }
 }
+//add/remove
 function removeHide() {
   //toggle image view and message view
+  //use for loop?
+}
+function hideBell() {
+
+}
+function showBell() {
+
 }
