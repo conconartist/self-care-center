@@ -21,6 +21,9 @@ label {
   margin-left: 2%;
 }
 
+.hidden {
+  display: none !important;
+}
 .choose-message {
   display: flex;
   flex-direction: column;
