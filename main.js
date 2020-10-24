@@ -7,7 +7,7 @@ var messageDisplay = document.querySelector(".message");
 //var bell cookPotImage
 
 //event listeners:
-messageBtn.addEventListener("click", displayMessage);
+messageBtn.addEventListener("click", generateMessage);
 
 //global variables:
 var affirmations = [
@@ -52,9 +52,12 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function displayMessage() {
+function generateMessage() {
   event.preventDefault();
-  //---> user -sees random message from list of possible messages for that category
+  displayMessage();
+}
+
+function displayMessage() {
   var selectMessage = document.getElementsByName("select-message");
   for (var i = 0; i < selectMessage.length; i++) {
     if(selectMessage[i].checked) {
