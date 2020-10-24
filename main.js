@@ -2,15 +2,18 @@
 //var form
 var affirmationSelection = document.querySelector("#affirmation");
 var mantraSelection = document.querySelector("#mantra");
-var messageBtn = document.querySelector(".message-button");
 var messageDisplay = document.querySelector(".message");
 var bell = document.querySelector(".bell");
+var addMessageForm = document.querySelector(".add-message-form");
+
+var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
+var submitBtn = document.querySelector(".submit-button");
 
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
-
+submitBtn.addEventListener("click", addUserMessage)
 //global variables:
 var affirmations = [
   "I forgive myself and set myself free.",
@@ -75,11 +78,17 @@ function displayMessage() {
 }
 
 function addMessage() {
-  //hidebell and hide original form 
+  hideBell();
+  //hidebell and hide original form
+  //show new form
   //a form will appear in message box
   //two inputs- one to specify which type of message is being added,
   //one to add the text of the message itself
   //submit button
+}
+
+function addUserMessage() {
+
 }
 //add/remove
 function removeHide() {
