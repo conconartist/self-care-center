@@ -51,8 +51,8 @@ var message;
 function getRandomIndex(array) {
   array[Math.floor(math.random()) * array.length];
 }
-//When user selects a message option and clicks "Receive Message" button
-//---> user -sees random message from list of possible messages for that category
 
-//function displayMessage() {
-//}
+function displayMessage() {
+  //When user selects a message option and clicks "Receive Message" button
+  //---> user -sees random message from list of possible messages for that category
+  }
