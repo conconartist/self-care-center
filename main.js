@@ -3,7 +3,7 @@
 var affirmationSelection = document.querySelector("#affirmation");
 var mantraSelection = document.querySelector("#mantra");
 var messageBtn = document.querySelector(".message-button");
-
+var messageDisplay = document.querySelector(".message");
 //var bell cookPotImage
 
 //event listeners:
@@ -53,6 +53,16 @@ function getRandomIndex(array) {
 }
 
 function displayMessage() {
-  //When user selects a message option and clicks "Receive Message" button
   //---> user -sees random message from list of possible messages for that category
+  var selectMessage = document.getElementsByName("select-message");
+  for (var i = 0; i < selectMessage.length; i++) {
+    if(selectMessage[i].checked) {
+      message = selectMessage[i].value;
+    }
   }
+  if (message === "affirmation") {
+    messageDisplay.innerText = `${affirmations[getRandomIndex(affirmations)]}`;
+  } else if (message === "mantra") {
+    messageDisplay.innerText = `${mantras[getRandomIndex(mantras)]}`
+  }
+}
