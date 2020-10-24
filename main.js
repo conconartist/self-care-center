@@ -79,8 +79,7 @@ function displayMessage() {
 
 function addMessage() {
   hideBell();
-  //hidebell and hide original form
-  //show new form
+  showAddMessageForm();
   //a form will appear in message box
   //two inputs- one to specify which type of message is being added,
   //one to add the text of the message itself
@@ -101,4 +100,16 @@ function hideBell() {
 }
 function showBell() {
   bell.classList.remove("hidden");
+}
+function showAddMessageForm() {
+  addMessageForm.classList.remove("hidden");
+}
+function hideAddMessageForm() {
+  addMessageForm.classList.add("hidden");
+}
+function showMessageDisplay() {
+  message.classList.remove("hidden");
+}
+function hideMessageDisplay() {
+  message.classList.add("hidden");
 }
