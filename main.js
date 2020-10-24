@@ -49,7 +49,7 @@ var message;
 //functions:
 
 function getRandomIndex(array) {
-  Math.floor(Math.random() * array.length);
+  return Math.floor(Math.random() * array.length);
 }
 
 function displayMessage() {
@@ -65,4 +65,7 @@ function displayMessage() {
   } else if (message === "mantra") {
     messageDisplay.innerText = `${mantras[getRandomIndex(mantras)]}`
   }
+}
+function removeHide() {
+  //toggle image view and message view
 }
