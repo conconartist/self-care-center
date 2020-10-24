@@ -1,13 +1,13 @@
 //query selectors:
 //var form
 var affirmationSelection = document.querySelector("#affirmation");
-var mantraSelection = document.querySelector("#ma");
-//var receiveMessageBtn = document.querySelector()
+var mantraSelection = document.querySelector("#mantra");
+var messageBtn = document.querySelector(".message-button");
 
 //var bell cookPotImage
 
 //event listeners:
-//receiveMessageBtn.addEventListener("click", displayMessage);
+messageBtn.addEventListener("click", displayMessage);
 
 //global variables:
 var affirmations = [
