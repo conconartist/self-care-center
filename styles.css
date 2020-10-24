@@ -66,7 +66,7 @@ label {
   padding: 3%;
 }
 
-.message-button {
+button {
   background-color: #134d71;
   color: #ffffff;
   border-radius: .3em;
@@ -75,6 +75,13 @@ label {
   font-family: 'Quicksand', sans-serif;
   font-size: 1em;
   width: 37%;
+}
+
+.message-add-button {
+  width: 10%;
+  font-size: .7em;
+  padding: 0.3em;
+  margin-top: 2%;
 }
 
 .message {

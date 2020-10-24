@@ -5,6 +5,7 @@ var mantraSelection = document.querySelector("#mantra");
 var messageBtn = document.querySelector(".message-button");
 var messageDisplay = document.querySelector(".message");
 var bell = document.querySelector(".bell");
+var addMessageBtn = document.querySelector(".message-add-button");
 
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
