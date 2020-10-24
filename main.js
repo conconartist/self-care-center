@@ -75,7 +75,11 @@ function displayMessage() {
 }
 
 function addMessage() {
-  
+  //hidebell and hide original form 
+  //a form will appear in message box
+  //two inputs- one to specify which type of message is being added,
+  //one to add the text of the message itself
+  //submit button
 }
 //add/remove
 function removeHide() {
