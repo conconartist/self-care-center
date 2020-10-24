@@ -54,6 +54,7 @@ function getRandomIndex(array) {
 
 function generateMessage() {
   event.preventDefault();
+  hideBell();
   displayMessage();
 }
 
@@ -76,8 +77,9 @@ function removeHide() {
   //use for loop?
 }
 function hideBell() {
+  bell.classList.add("hidden");
 
 }
 function showBell() {
-
+  bell.classList.remove("hidden");
 }

@@ -24,11 +24,13 @@ label {
 .hidden {
   display: none !important;
 }
+
 .choose-message {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .message-choice-box {
   background-color: #ffffff;
   font-size: .7em;
@@ -78,6 +80,7 @@ label {
   display: flex;
   justify-content: center;
 }
+
 .bell {
   display: flex;
   flex-direction: column;
