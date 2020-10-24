@@ -53,6 +53,7 @@ function getRandomIndex(array) {
 }
 
 function displayMessage() {
+  event.preventDefault();
   //---> user -sees random message from list of possible messages for that category
   var selectMessage = document.getElementsByName("select-message");
   for (var i = 0; i < selectMessage.length; i++) {
