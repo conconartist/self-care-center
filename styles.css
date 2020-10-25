@@ -21,10 +21,6 @@ label {
   margin-left: 2%;
 }
 
-p {
-  font-color: red;
-}
-
 .hidden {
   display: none !important;
 }
@@ -123,6 +119,18 @@ button {
   padding: .2em;
   margin-top: .7em;
   width: 10%;
+}
+
+p {
+  color: red;
+  font-size: .6em;
+}
+.type-error {
+  margin-top: -5%;
+}
+
+.message-error {
+  margin-top: -2%;
 }
 /* COLORS
 light-yellow - #f7e4bf;

@@ -16,7 +16,7 @@ var submitBtn = document.querySelector("#submit-button");
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
-submitBtn.addEventListener("click", displayUserMessage)
+submitBtn.addEventListener("click", displayUserMessage);
 //global variables:
 var affirmations = [
   "I forgive myself and set myself free.",
@@ -95,8 +95,8 @@ function displayUserMessage() {
 }
 function checkUserType() {
   if (userType.value != "affirmation" && userType.value != "mantra"){
-    messageDisplayBox.insertAdjacentHTML('afterend', `<p>Please indicate type of message in field</p>`);
-    document.getElementById("submit-button").disabled = true;
+    messageDisplayBox.innerHTML += `<p class="type-error">Please indicate type of message in field</p>`;
+    // document.getElementById("submit-button").disabled = true;
     // return false;
   } else {
     document.getElementById("submit-button").disabled = false;
@@ -104,8 +104,8 @@ function checkUserType() {
 }
 function checkUserMessage() {
   if (userMessage.value === "") {
-    messageDisplayBox.insertAdjacentHTML('afterend', `<p>Please type message in field</p>`);
-    document.getElementById("submit-button").disabled = true;
+    messageDisplayBox.innerHTML += `<p class="message-erorr">Please type message in field</p>`;
+    // document.getElementById("submit-button").disabled = true;
     // return false;
   } else {
     document.getElementById("submit-button").disabled = false;
@@ -120,6 +120,10 @@ function addUserMessage() {
     messageDisplay.innerText = `${userMessage.value}`;
   }
 }
+
+//function deleteMessage
+//if message === affirmation/mantra[i]
+//splice(i, 1)
 
 function removeHide() {
   //toggle image view and message view
