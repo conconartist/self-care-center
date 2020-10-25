@@ -3,6 +3,7 @@
 var affirmationSelection = document.querySelector("#affirmation");
 var mantraSelection = document.querySelector("#mantra");
 var messageDisplay = document.querySelector(".message");
+var messageDisplayBox = document.querySelector(".message-display-box")
 var bell = document.querySelector(".bell");
 var addMessageForm = document.querySelector(".add-message-form");
 var userType = document.querySelector("#user-type");
@@ -10,7 +11,7 @@ var userMessage = document.querySelector("#user-message");
 
 var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
-var submitBtn = document.querySelector(".submit-button");
+var submitBtn = document.querySelector("#submit-button");
 
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
@@ -87,14 +88,19 @@ function addMessage() {
 function addUserMessage() {
   event.preventDefault();
   hideBell();
-  //if user doesn't specify type of message, show error, disable submit button
-  if (userType.value != "affirmation" || userType.value != "mantra") {
-    submitBtn.insertAdjacenHTML("afterbegin", `<p>Please indicate type of message in field</p>`);
-    return false;
-  }
+  checkUserType();
   //if user doesn't type a message, show error, disable submission
   //else message will be added to message array (affirmation or mantra)
   //message will be displayed in the message box
+}
+function checkUserType() {
+  if (userType.value != "affirmation" || userType.value != "mantra") {
+    messageDisplayBox.insertAdjacentHTML('afterend', `<p>Please indicate type of message in field</p>`);
+    document.getElementById("submit-button").disabled = true;
+    return false;
+  } else {
+    return true;
+  }
 }
 //add/remove
 function removeHide() {
