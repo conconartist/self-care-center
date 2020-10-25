@@ -82,6 +82,7 @@ function displayMessage() {
 
 function addMessage() {
   hideBell();
+  hideMessageDisplay();
   showAddMessageForm();
 }
 
@@ -148,9 +149,9 @@ function hideAddMessageForm() {
 }
 
 function showMessageDisplay() {
-  message.classList.remove("hidden");
+  messageDisplay.classList.remove("hidden");
 }
 
 function hideMessageDisplay() {
-  message.classList.add("hidden");
+  messageDisplay.classList.add("hidden");
 }
