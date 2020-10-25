@@ -21,6 +21,10 @@ label {
   margin-left: 2%;
 }
 
+p {
+  font-color: red;
+}
+
 .hidden {
   display: none !important;
 }
@@ -84,6 +88,12 @@ button {
   margin-top: 2%;
 }
 
+.user-input {
+  margin: 0;
+  margin-top: .7em;
+  width: 75%;
+}
+
 .message {
   margin-top: 1%;
   display: flex;
@@ -98,6 +108,21 @@ button {
 .bell-image {
   margin-top: -1%;
   height: 3em;
+}
+
+.add-message-form {
+  font-size: .7em;
+  font-style: italic;
+  margin-top: -6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit-button {
+  padding: .2em;
+  margin-top: .7em;
+  width: 10%;
 }
 /* COLORS
 light-yellow - #f7e4bf;

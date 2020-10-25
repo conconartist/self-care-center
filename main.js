@@ -5,6 +5,8 @@ var mantraSelection = document.querySelector("#mantra");
 var messageDisplay = document.querySelector(".message");
 var bell = document.querySelector(".bell");
 var addMessageForm = document.querySelector(".add-message-form");
+var userType = document.querySelector("#user-type");
+var userMessage = document.querySelector("#user-message");
 
 var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
@@ -80,14 +82,19 @@ function displayMessage() {
 function addMessage() {
   hideBell();
   showAddMessageForm();
-  //a form will appear in message box
-  //two inputs- one to specify which type of message is being added,
-  //one to add the text of the message itself
-  //submit button
 }
 
 function addUserMessage() {
-
+  event.preventDefault();
+  hideBell();
+  //if user doesn't specify type of message, show error, disable submit button
+  if (userType.value != "affirmation" || userType.value != "mantra") {
+    submitBtn.insertAdjacenHTML("afterbegin", `<p>Please indicate type of message in field</p>`);
+    return false;
+  }
+  //if user doesn't type a message, show error, disable submission
+  //else message will be added to message array (affirmation or mantra)
+  //message will be displayed in the message box
 }
 //add/remove
 function removeHide() {
