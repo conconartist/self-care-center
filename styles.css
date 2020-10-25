@@ -60,7 +60,7 @@ p {
   width: 112%;
 }
 
-.display-message {
+.message-display-box {
   background-color: #ffffff;
   color: #000000;
   border-radius: .3em;
@@ -119,7 +119,7 @@ button {
   align-items: center;
 }
 
-.submit-button {
+#submit-button {
   padding: .2em;
   margin-top: .7em;
   width: 10%;
