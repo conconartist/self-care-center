@@ -16,7 +16,7 @@ var submitBtn = document.querySelector("#submit-button");
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
-submitBtn.addEventListener("click", addUserMessage)
+submitBtn.addEventListener("click", displayUserMessage)
 //global variables:
 var affirmations = [
   "I forgive myself and set myself free.",
@@ -85,39 +85,42 @@ function addMessage() {
   showAddMessageForm();
 }
 
-function addUserMessage() {
+function displayUserMessage() {
   event.preventDefault();
   hideBell();
   checkUserType();
   checkUserMessage();
-  addUserMessageToType();
-  displayUserMessage();
+  hideAddMessageForm()
+  addUserMessage();
 }
 function checkUserType() {
   if (userType.value != "affirmation" && userType.value != "mantra"){
     messageDisplayBox.insertAdjacentHTML('afterend', `<p>Please indicate type of message in field</p>`);
     document.getElementById("submit-button").disabled = true;
-    return false;
+    // return false;
   } else {
-    return true;
+    document.getElementById("submit-button").disabled = false;
   }
 }
 function checkUserMessage() {
   if (userMessage.value === "") {
     messageDisplayBox.insertAdjacentHTML('afterend', `<p>Please type message in field</p>`);
     document.getElementById("submit-button").disabled = true;
-    return false;
+    // return false;
   } else {
-    return true;
+    document.getElementById("submit-button").disabled = false;
   }
 }
-function addUserMessageToType() {
-  //else message will be added to message array (affirmation or mantra)
+function addUserMessage() {
+  if(userType.value == "affirmation") {
+    affirmations.push(userMessage.value);
+    messageDisplay.innerText = `${userMessage.value}`;
+  } else if(userType.value == "mantra") {
+    mantras.push(userMessage.value);
+    messageDisplay.innerText = `${userMessage.value}`;
+  }
 }
-function displayUserMessage() {
-  //message will be displayed in the message box
-}
-//add/remove
+
 function removeHide() {
   //toggle image view and message view
   //use for loop?
