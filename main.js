@@ -89,12 +89,12 @@ function addUserMessage() {
   event.preventDefault();
   hideBell();
   checkUserType();
-  //if user doesn't type a message, show error, disable submission
-  //else message will be added to message array (affirmation or mantra)
-  //message will be displayed in the message box
+  checkUserMessage();
+  addUserMessageToType();
+  displayUserMessage();
 }
 function checkUserType() {
-  if (userType.value != "affirmation" || userType.value != "mantra") {
+  if (userType.value != "affirmation" && userType.value != "mantra"){
     messageDisplayBox.insertAdjacentHTML('afterend', `<p>Please indicate type of message in field</p>`);
     document.getElementById("submit-button").disabled = true;
     return false;
@@ -102,27 +102,48 @@ function checkUserType() {
     return true;
   }
 }
+function checkUserMessage() {
+  if (userMessage.value === "") {
+    messageDisplayBox.insertAdjacentHTML('afterend', `<p>Please type message in field</p>`);
+    document.getElementById("submit-button").disabled = true;
+    return false;
+  } else {
+    return true;
+  }
+}
+function addUserMessageToType() {
+  //else message will be added to message array (affirmation or mantra)
+}
+function displayUserMessage() {
+  //message will be displayed in the message box
+}
 //add/remove
 function removeHide() {
   //toggle image view and message view
   //use for loop?
 }
+
 function hideBell() {
   bell.classList.add("hidden");
 
 }
+
 function showBell() {
   bell.classList.remove("hidden");
 }
+
 function showAddMessageForm() {
   addMessageForm.classList.remove("hidden");
 }
+
 function hideAddMessageForm() {
   addMessageForm.classList.add("hidden");
 }
+
 function showMessageDisplay() {
   message.classList.remove("hidden");
 }
+
 function hideMessageDisplay() {
   message.classList.add("hidden");
 }
