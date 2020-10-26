@@ -68,6 +68,7 @@ function generateMessage() {
   event.preventDefault();
   displayMessage();
   hideBell();
+  showDeleteBtn();
 }
 
 function displayMessage() {
@@ -89,6 +90,7 @@ function addMessage() {
   hideMessageDisplay();
   showAddMessageForm();
   showSubmitBtn();
+  hideDeleteBtn();
 }
 
 function displayUserMessage() {
@@ -176,5 +178,11 @@ function hideMessageDisplay() {
   messageDisplay.classList.add("hidden");
 }
 function showSubmitBtn() {
-  submitBtn.classList.remove("hidden")
+  submitBtn.classList.remove("hidden");
+}
+function showDeleteBtn() {
+  deleteBtn.classList.remove("hidden");
+}
+function hideDeleteBtn() {
+  deleteBtn.classList.add("hidden");
 }
