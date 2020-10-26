@@ -13,7 +13,7 @@ var userInput = document.querySelectorAll(".user-input");
 var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
 var submitBtn = document.querySelector(".submit-button");
-var resubmitBtn = document.querySelector("#resubmit-button");
+var deleteBtn = document.querySelector(".delete-button");
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
