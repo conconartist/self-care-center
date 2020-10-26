@@ -8,7 +8,7 @@
     <h3><span>&#10024;</span> Self Care Center <span>&#10024;</span></h3>
     <section class="choose-message">
       <h5>Which type of message?</h5>
-      <form class="message-choice-box">
+      <form id="user-form" class="message-choice-box">
         <section class="message-choices">
           <input type="radio" id="affirmation" name="select-message" value="affirmation">
           <label for="affirmation">affirmation</label>
@@ -24,14 +24,16 @@
       </section>
       <section class="message">
       </section>
-      <form class="add-message-form hidden">
+      <form id="user-form" class="add-message-form hidden">
         <input class="user-input" type="text" id="user-type" name="select-message-type" value="" placeholder="Is this an affirmation or mantra?">
         <input class="user-input" type="text" id="user-message" name="user-message" value="" placeholder="Type your message">
-        <button id="submit-button">Submit</button>
-        <button id="resubmit-button" class="hidden">Try Again</button>
       </form>
     </section>
-    <button class="message-add-button">Add Message</button>
+    <section class="button-box">
+      <button id="submit-button">Submit</button>
+      <button id="resubmit-button" class="hidden">Try Again</button>
+      <button class="message-add-button">Add Message</button>
+    </section>
   </body>
   <script type="text/javascript" src="main.js"></script>
 </html>
