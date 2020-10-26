@@ -8,6 +8,7 @@ var bell = document.querySelector(".bell");
 var addMessageForm = document.querySelector(".add-message-form");
 var userType = document.querySelector("#user-type");
 var userMessage = document.querySelector("#user-message");
+var userInput = document.querySelectorAll(".user-input");
 
 var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
@@ -17,6 +18,9 @@ var submitBtn = document.querySelector("#submit-button");
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
 submitBtn.addEventListener("click", displayUserMessage);
+// addMessageForm.addEventListener("keydown", enableSubmitBtn);
+// userMessage.addEventListener("change", enableSubmitBtn);
+
 //global variables:
 var affirmations = [
   "I forgive myself and set myself free.",
@@ -88,28 +92,30 @@ function addMessage() {
 
 function displayUserMessage() {
   event.preventDefault();
-  hideBell();
+  showMessageDisplay();
   checkUserType();
   checkUserMessage();
-  hideAddMessageForm()
-  addUserMessage();
+  hideAddMessageForm();
+  hideBell();
+  // enableSubmitBtn();
+  // event.preventDefault();
 }
 function checkUserType() {
   if (userType.value != "affirmation" && userType.value != "mantra"){
     messageDisplayBox.innerHTML += `<p class="type-error">Please indicate type of message in field</p>`;
-    // document.getElementById("submit-button").disabled = true;
-    // return false;
+    document.getElementById("submit-button").disabled = true;
+    // submitBtn.setAttribute("disabled", "Submit");
   } else {
-    document.getElementById("submit-button").disabled = false;
+      addUserMessage();
   }
 }
 function checkUserMessage() {
   if (userMessage.value === "") {
-    messageDisplayBox.innerHTML += `<p class="message-erorr">Please type message in field</p>`;
-    // document.getElementById("submit-button").disabled = true;
-    // return false;
+    messageDisplayBox.innerHTML += `<p class="message-error">Please type message in field</p>`;
+    document.getElementById("submit-button").disabled = true;
+    // submitBtn.setAttribute("disabled", "Submit");
   } else {
-    document.getElementById("submit-button").disabled = false;
+      addUserMessage();
   }
 }
 function addUserMessage() {
@@ -122,6 +128,11 @@ function addUserMessage() {
   }
 }
 
+function enableSubmitBtn() {
+    document.getElementById("submit-button").disabled = false;
+}
+
+
 //function deleteMessage
 //if message === affirmation/mantra[i]
 //splice(i, 1)
@@ -132,6 +143,7 @@ function removeHide() {
 }
 
 function hideBell() {
+  console.log("bell")
   bell.classList.add("hidden");
 
 }
