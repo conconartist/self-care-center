@@ -14,10 +14,12 @@ var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
 var submitBtn = document.querySelector(".submit-button");
 var deleteBtn = document.querySelector(".delete-button");
+
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
 submitBtn.addEventListener("click", displayUserMessage);
+deleteBtn.addEventListener("click", deleteMessage);
 
 //global variables:
 var affirmations = [
@@ -119,12 +121,12 @@ function checkUserMessage() {
       return true;
   }
 }
-
-function hideForm() {
-  if(checkUserType !== false && checkUserMessage !== false) {
-    hideAddMessageForm();
-  }
-}
+//
+// function hideForm() {
+//   if(checkUserType !== false && checkUserMessage !== false) {
+//     hideAddMessageForm();
+//   }
+// }
 
 function addUserMessage() {
   console.log("addusermessage")
@@ -143,6 +145,9 @@ function clearUserInput() {
   userMessage.value = "";
 }
 
+function deleteMessage() {
+
+}
 //function deleteMessage
 //if message === affirmation/mantra[i]
 //splice(i, 1)
