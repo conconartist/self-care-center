@@ -84,42 +84,59 @@ function displayMessage() {
 }
 
 function addMessage() {
+  // event.preventDefault();
   hideBell();
   hideMessageDisplay();
   showAddMessageForm();
 }
 
 function displayUserMessage() {
+  console.log("showmessage")
   event.preventDefault();
   showMessageDisplay();
   checkUserType();
   checkUserMessage();
-  hideAddMessageForm();
   hideBell();
-  clearUserInput();
+  // clearUserInput();
+  // resetForm();
 }
 
 function checkUserType() {
+  console.log("checkusertype")
   if (userType.value != "affirmation" && userType.value != "mantra"){
     resubmitBtn.classList.remove("hidden");
-    messageDisplayBox.innerHTML += `<p class="type-error">Please indicate type of message in field</p>`;
+    messageDisplayBox.innerHTML = `<p class="type-error">Please indicate type of message in field</p>`;
     document.getElementById("submit-button").disabled = true;
+    // submitBtn.classList.toggle("disable");
+    return false;
   } else {
       addUserMessage();
+      // hideForm();
   }
 }
 
 function checkUserMessage() {
+  console.log("checkusermessage")
   if (userMessage.value === "") {
     resubmitBtn.classList.remove("hidden");
-    messageDisplayBox.innerHTML += `<p class="message-error">Please type message in field</p>`;
+    messageDisplayBox.innerHTML = `<p class="message-error">Please type message in field</p>`;
     document.getElementById("submit-button").disabled = true;
+    // submitBtn.classList.toggle("disable");
+    return false;
   } else {
       addUserMessage();
+      // hideForm();
+  }
+}
+
+function hideForm() {
+  if(checkUserType !== false && checkUserMessage !== false) {
+    hideAddMessageForm();
   }
 }
 
 function addUserMessage() {
+  console.log("addusermessage")
   if(userType.value == "affirmation") {
     affirmations.push(userMessage.value);
     messageDisplay.innerText = `${userMessage.value}`;
@@ -130,16 +147,25 @@ function addUserMessage() {
 }
 
 function enableSubmitBtn() {
-  console.log("reset")
-    document.getElementById("submit-button").disabled = false;
-    return;
+  // event.preventDefault();
+  console.log("cookie");
+  // resetForm();
+  document.getElementById("submit-button").disabled = false;
+  // resetForm();
+  // submitBtn.classList.remove("disable");
+  // displayUserMessage();
 }
 
 function clearUserInput() {
+  console.log("clearinput");
   userType.value = "";
   userMessage.value = "";
 }
 
+function resetForm() {
+  console.log("reset")
+  document.getElementById("user-form").reset();
+}
 //function deleteMessage
 //if message === affirmation/mantra[i]
 //splice(i, 1)
@@ -150,7 +176,6 @@ function removeHide() {
 }
 
 function hideBell() {
-  console.log("bell")
   bell.classList.add("hidden");
 
 }
@@ -164,6 +189,7 @@ function showAddMessageForm() {
 }
 
 function hideAddMessageForm() {
+  console.log("hide form")
   addMessageForm.classList.add("hidden");
 }
 
@@ -173,4 +199,9 @@ function showMessageDisplay() {
 
 function hideMessageDisplay() {
   messageDisplay.classList.add("hidden");
+}
+function hideForm() {
+  console.log("hide form plz")
+
+
 }
