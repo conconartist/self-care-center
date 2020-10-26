@@ -3,7 +3,6 @@
 var affirmationSelection = document.querySelector("#affirmation");
 var mantraSelection = document.querySelector("#mantra");
 var messageDisplay = document.querySelector(".message");
-var messageDisplayBox = document.querySelector(".message-display-box")
 var bell = document.querySelector(".bell");
 var addMessageForm = document.querySelector(".add-message-form");
 var userType = document.querySelector("#user-type");
@@ -114,7 +113,6 @@ function checkUserType() {
 }
 
 function checkUserMessage() {
-  console.log("checkusermessage")
   if (userMessage.value === "") {
     messageDisplay.innerHTML = `<p class="message-error">Please type message in field</p>`;
     return false;
@@ -123,15 +121,8 @@ function checkUserMessage() {
       return true;
   }
 }
-//
-// function hideForm() {
-//   if(checkUserType !== false && checkUserMessage !== false) {
-//     hideAddMessageForm();
-//   }
-// }
 
 function addUserMessage() {
-  console.log("addusermessage")
   if(userType.value == "affirmation") {
     affirmations.push(userMessage.value);
     messageDisplay.innerText = `${userMessage.value}`;
@@ -141,31 +132,28 @@ function addUserMessage() {
   }
 }
 
-function clearUserInput() {
-  console.log("clearinput");
-  userType.value = "";
-  userMessage.value = "";
+function deleteMessage() {
+  deleteMantra();
+  deleteAffirmation();
 }
 
-function deleteMessage() {
+function deleteMantra() {
   for (var i = 0; i < mantras.length; i++) {
     if(messageDisplay.innerText === `${mantras[i]}`) {
       mantras.splice(i, 1);
       messageDisplay.innerHTML = `<p class="message-error">Your mantra has been deleted</p>`
     }
   }
+}
+
+function deleteAffirmation() {
   for (var i = 0; i < affirmations.length; i++) {
     if(messageDisplay.innerText === `${affirmations[i]}`) {
       affirmations.splice(i, 1);
       messageDisplay.innerHTML = `<p class="message-error">Your affirmation has been deleted</p>`
     }
   }
-  //when clicked, remove message from array
-  //show message "Your message has been removed."
 }
-//function deleteMessage
-//if message === affirmation/mantra[i]
-//splice(i, 1)
 
 function hideBell() {
   bell.classList.add("hidden");
