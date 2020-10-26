@@ -97,38 +97,48 @@ function displayUserMessage() {
   checkUserType();
   checkUserMessage();
   hideBell();
+  hideAddMessageForm();
   // clearUserInput();
   // resetForm();
 }
 
 function checkUserType() {
-  console.log("checkusertype")
   if (userType.value != "affirmation" && userType.value != "mantra"){
     resubmitBtn.classList.remove("hidden");
-    messageDisplayBox.innerHTML = `<p class="type-error">Please indicate type of message in field</p>`;
+    messageDisplayBox.innerHTML += `<p class="type-error">Please indicate type of message in field</p>`;
     document.getElementById("submit-button").disabled = true;
     // submitBtn.classList.toggle("disable");
     return false;
   } else {
       addUserMessage();
-      // hideForm();
+            // hideForm();
+      // hideAddMessageForm();
+      return true;
   }
 }
+
+//separate innerHTML from the check value?
 
 function checkUserMessage() {
   console.log("checkusermessage")
   if (userMessage.value === "") {
     resubmitBtn.classList.remove("hidden");
-    messageDisplayBox.innerHTML = `<p class="message-error">Please type message in field</p>`;
+    messageDisplayBox.innerHTML += `<p class="message-error">Please type message in field</p>`;
     document.getElementById("submit-button").disabled = true;
     // submitBtn.classList.toggle("disable");
     return false;
   } else {
       addUserMessage();
-      // hideForm();
+          // hideForm();
+      // hideAddMessageForm();
+      return true;
   }
 }
 
+function checkInput() {
+  //check array userInput[0] = #user-Type
+  //userInput[1] = #user-messageBtn
+}
 function hideForm() {
   if(checkUserType !== false && checkUserMessage !== false) {
     hideAddMessageForm();
