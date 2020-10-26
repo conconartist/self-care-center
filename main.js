@@ -109,29 +109,17 @@ function checkUserType() {
   }
 }
 
-//separate innerHTML from the check value?
-
 function checkUserMessage() {
   console.log("checkusermessage")
   if (userMessage.value === "") {
-    // resubmitBtn.classList.remove("hidden");
-    // messageDisplayBox.innerHTML = `<p class="message-error">Please type message in field</p>`;
     messageDisplay.innerHTML = `<p class="message-error">Please type message in field</p>`;
-    // document.getElementById("submit-button").disabled = true;
-    // submitBtn.classList.toggle("disable");
     return false;
   } else {
       addUserMessage();
-          // hideForm();
-      // hideAddMessageForm();
       return true;
   }
 }
 
-function checkInput() {
-  //check array userInput[0] = #user-Type
-  //userInput[1] = #user-messageBtn
-}
 function hideForm() {
   if(checkUserType !== false && checkUserMessage !== false) {
     hideAddMessageForm();
