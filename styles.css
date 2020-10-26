@@ -25,6 +25,10 @@ label {
   display: none !important;
 }
 
+.disabled {
+  pointer-events: none;
+}
+
 .choose-message {
   display: flex;
   flex-direction: column;
@@ -66,6 +70,13 @@ label {
   padding: 3%;
 }
 
+.button-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 button {
   background-color: #134d71;
   color: #ffffff;
@@ -81,7 +92,8 @@ button {
   width: 10%;
   font-size: .7em;
   padding: 0.3em;
-  margin-top: 6%;
+  margin: 1%;
+  margin-top: 5%;
 }
 
 .user-input {
@@ -116,13 +128,17 @@ button {
 }
 
 #submit-button {
-  padding: .2em;
-  margin-top: .7em;
+  font-size: .7em;
+  padding: .3em;
+  margin: 1%;
+  margin-top: 5%;
   width: 10%;
 }
 #resubmit-button {
-  padding: .2em;
-  margin-top: .7em;
+  font-size: .7em;
+  padding: .3em;
+  margin: 1%;
+  margin-top: 5%;
   width: 10%;
 }
 p {
