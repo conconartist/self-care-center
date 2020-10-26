@@ -13,13 +13,12 @@ var userInput = document.querySelectorAll(".user-input");
 var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
 var submitBtn = document.querySelector("#submit-button");
-
+var resubmitBtn = document.querySelector("#resubmit-button");
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
 submitBtn.addEventListener("click", displayUserMessage);
-// addMessageForm.addEventListener("keydown", enableSubmitBtn);
-// userMessage.addEventListener("change", enableSubmitBtn);
+resubmitBtn.addEventListener("click", enableSubmitBtn);
 
 //global variables:
 var affirmations = [
@@ -97,27 +96,29 @@ function displayUserMessage() {
   checkUserMessage();
   hideAddMessageForm();
   hideBell();
-  // enableSubmitBtn();
-  // event.preventDefault();
+  clearUserInput();
 }
+
 function checkUserType() {
   if (userType.value != "affirmation" && userType.value != "mantra"){
+    resubmitBtn.classList.remove("hidden");
     messageDisplayBox.innerHTML += `<p class="type-error">Please indicate type of message in field</p>`;
     document.getElementById("submit-button").disabled = true;
-    // submitBtn.setAttribute("disabled", "Submit");
   } else {
       addUserMessage();
   }
 }
+
 function checkUserMessage() {
   if (userMessage.value === "") {
+    resubmitBtn.classList.remove("hidden");
     messageDisplayBox.innerHTML += `<p class="message-error">Please type message in field</p>`;
     document.getElementById("submit-button").disabled = true;
-    // submitBtn.setAttribute("disabled", "Submit");
   } else {
       addUserMessage();
   }
 }
+
 function addUserMessage() {
   if(userType.value == "affirmation") {
     affirmations.push(userMessage.value);
@@ -129,9 +130,15 @@ function addUserMessage() {
 }
 
 function enableSubmitBtn() {
+  console.log("reset")
     document.getElementById("submit-button").disabled = false;
+    return;
 }
 
+function clearUserInput() {
+  userType.value = "";
+  userMessage.value = "";
+}
 
 //function deleteMessage
 //if message === affirmation/mantra[i]

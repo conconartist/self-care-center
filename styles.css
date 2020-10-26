@@ -120,7 +120,11 @@ button {
   margin-top: .7em;
   width: 10%;
 }
-
+#resubmit-button {
+  padding: .2em;
+  margin-top: .7em;
+  width: 10%;
+}
 p {
   color: red;
   font-size: .6em;
