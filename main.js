@@ -12,13 +12,12 @@ var userInput = document.querySelectorAll(".user-input");
 
 var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
-var submitBtn = document.querySelector("#submit-button");
+var submitBtn = document.querySelector(".submit-button");
 var resubmitBtn = document.querySelector("#resubmit-button");
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
 submitBtn.addEventListener("click", displayUserMessage);
-resubmitBtn.addEventListener("click", enableSubmitBtn);
 
 //global variables:
 var affirmations = [
@@ -84,35 +83,28 @@ function displayMessage() {
 }
 
 function addMessage() {
-  // event.preventDefault();
   hideBell();
   hideMessageDisplay();
   showAddMessageForm();
+  showSubmitBtn();
 }
 
 function displayUserMessage() {
-  console.log("showmessage")
+  messageDisplay.innerHTML = "";
   event.preventDefault();
   showMessageDisplay();
   checkUserType();
   checkUserMessage();
   hideBell();
   hideAddMessageForm();
-  // clearUserInput();
-  // resetForm();
 }
 
 function checkUserType() {
   if (userType.value != "affirmation" && userType.value != "mantra"){
-    resubmitBtn.classList.remove("hidden");
-    messageDisplayBox.innerHTML += `<p class="type-error">Please indicate type of message in field</p>`;
-    document.getElementById("submit-button").disabled = true;
-    // submitBtn.classList.toggle("disable");
+    messageDisplay.innerHTML = `<p class="message-error">Please type message in field</p>`
     return false;
   } else {
       addUserMessage();
-            // hideForm();
-      // hideAddMessageForm();
       return true;
   }
 }
@@ -122,9 +114,10 @@ function checkUserType() {
 function checkUserMessage() {
   console.log("checkusermessage")
   if (userMessage.value === "") {
-    resubmitBtn.classList.remove("hidden");
-    messageDisplayBox.innerHTML += `<p class="message-error">Please type message in field</p>`;
-    document.getElementById("submit-button").disabled = true;
+    // resubmitBtn.classList.remove("hidden");
+    // messageDisplayBox.innerHTML = `<p class="message-error">Please type message in field</p>`;
+    messageDisplay.innerHTML = `<p class="message-error">Please type message in field</p>`;
+    // document.getElementById("submit-button").disabled = true;
     // submitBtn.classList.toggle("disable");
     return false;
   } else {
@@ -160,7 +153,7 @@ function enableSubmitBtn() {
   // event.preventDefault();
   console.log("cookie");
   // resetForm();
-  document.getElementById("submit-button").disabled = false;
+  // document.getElementById("submit-button").disabled = false;
   // resetForm();
   // submitBtn.classList.remove("disable");
   // displayUserMessage();
@@ -212,6 +205,7 @@ function hideMessageDisplay() {
 }
 function hideForm() {
   console.log("hide form plz")
-
-
+}
+function showSubmitBtn() {
+  submitBtn.classList.remove("hidden")
 }
