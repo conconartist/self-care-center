@@ -148,7 +148,20 @@ function clearUserInput() {
 }
 
 function deleteMessage() {
-
+  for (var i = 0; i < mantras.length; i++) {
+    if(messageDisplay.innerText === `${mantras[i]}`) {
+      mantras.splice(i, 1);
+      messageDisplay.innerHTML = `<p class="message-error">Your mantra has been deleted</p>`
+    }
+  }
+  for (var i = 0; i < affirmations.length; i++) {
+    if(messageDisplay.innerText === `${affirmations[i]}`) {
+      affirmations.splice(i, 1);
+      messageDisplay.innerHTML = `<p class="message-error">Your affirmation has been deleted</p>`
+    }
+  }
+  //when clicked, remove message from array
+  //show message "Your message has been removed."
 }
 //function deleteMessage
 //if message === affirmation/mantra[i]
