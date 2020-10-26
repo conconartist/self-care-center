@@ -137,38 +137,18 @@ function addUserMessage() {
   }
 }
 
-function enableSubmitBtn() {
-  // event.preventDefault();
-  console.log("cookie");
-  // resetForm();
-  // document.getElementById("submit-button").disabled = false;
-  // resetForm();
-  // submitBtn.classList.remove("disable");
-  // displayUserMessage();
-}
-
 function clearUserInput() {
   console.log("clearinput");
   userType.value = "";
   userMessage.value = "";
 }
 
-function resetForm() {
-  console.log("reset")
-  document.getElementById("user-form").reset();
-}
 //function deleteMessage
 //if message === affirmation/mantra[i]
 //splice(i, 1)
 
-function removeHide() {
-  //toggle image view and message view
-  //use for loop?
-}
-
 function hideBell() {
   bell.classList.add("hidden");
-
 }
 
 function showBell() {
@@ -180,7 +160,6 @@ function showAddMessageForm() {
 }
 
 function hideAddMessageForm() {
-  console.log("hide form")
   addMessageForm.classList.add("hidden");
 }
 
@@ -190,9 +169,6 @@ function showMessageDisplay() {
 
 function hideMessageDisplay() {
   messageDisplay.classList.add("hidden");
-}
-function hideForm() {
-  console.log("hide form plz")
 }
 function showSubmitBtn() {
   submitBtn.classList.remove("hidden")
