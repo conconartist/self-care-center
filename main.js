@@ -2,12 +2,22 @@
 //var form
 var affirmationSelection = document.querySelector("#affirmation");
 var mantraSelection = document.querySelector("#mantra");
-var messageBtn = document.querySelector(".message-button");
 var messageDisplay = document.querySelector(".message");
+var messageDisplayBox = document.querySelector(".message-display-box")
 var bell = document.querySelector(".bell");
+var addMessageForm = document.querySelector(".add-message-form");
+var userType = document.querySelector("#user-type");
+var userMessage = document.querySelector("#user-message");
+var userInput = document.querySelectorAll(".user-input");
 
+var messageBtn = document.querySelector(".message-button");
+var addMessageBtn = document.querySelector(".message-add-button");
+var submitBtn = document.querySelector(".submit-button");
+var deleteBtn = document.querySelector(".delete-button");
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
+addMessageBtn.addEventListener("click", addMessage);
+submitBtn.addEventListener("click", displayUserMessage);
 
 //global variables:
 var affirmations = [
@@ -71,15 +81,95 @@ function displayMessage() {
     messageDisplay.innerText = `${mantras[getRandomIndex(mantras)]}`
   }
 }
-//add/remove
-function removeHide() {
-  //toggle image view and message view
-  //use for loop?
+
+function addMessage() {
+  hideBell();
+  hideMessageDisplay();
+  showAddMessageForm();
+  showSubmitBtn();
 }
+
+function displayUserMessage() {
+  messageDisplay.innerHTML = "";
+  event.preventDefault();
+  showMessageDisplay();
+  checkUserType();
+  checkUserMessage();
+  hideBell();
+  hideAddMessageForm();
+}
+
+function checkUserType() {
+  if (userType.value != "affirmation" && userType.value != "mantra"){
+    messageDisplay.innerHTML = `<p class="message-error">Please type message in field</p>`
+    return false;
+  } else {
+      addUserMessage();
+      return true;
+  }
+}
+
+function checkUserMessage() {
+  console.log("checkusermessage")
+  if (userMessage.value === "") {
+    messageDisplay.innerHTML = `<p class="message-error">Please type message in field</p>`;
+    return false;
+  } else {
+      addUserMessage();
+      return true;
+  }
+}
+
+function hideForm() {
+  if(checkUserType !== false && checkUserMessage !== false) {
+    hideAddMessageForm();
+  }
+}
+
+function addUserMessage() {
+  console.log("addusermessage")
+  if(userType.value == "affirmation") {
+    affirmations.push(userMessage.value);
+    messageDisplay.innerText = `${userMessage.value}`;
+  } else if(userType.value == "mantra") {
+    mantras.push(userMessage.value);
+    messageDisplay.innerText = `${userMessage.value}`;
+  }
+}
+
+function clearUserInput() {
+  console.log("clearinput");
+  userType.value = "";
+  userMessage.value = "";
+}
+
+//function deleteMessage
+//if message === affirmation/mantra[i]
+//splice(i, 1)
+
 function hideBell() {
   bell.classList.add("hidden");
-
 }
+
 function showBell() {
   bell.classList.remove("hidden");
+}
+
+function showAddMessageForm() {
+  addMessageForm.classList.remove("hidden");
+}
+
+function hideAddMessageForm() {
+  addMessageForm.classList.add("hidden");
+}
+
+function showMessageDisplay() {
+  messageDisplay.classList.remove("hidden");
+}
+
+function hideMessageDisplay() {
+  messageDisplay.classList.add("hidden");
+}
+function showSubmitBtn() {
+  submitBtn.classList.remove("hidden")
 }

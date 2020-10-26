@@ -25,6 +25,10 @@ label {
   display: none !important;
 }
 
+.disabled {
+  pointer-events: none;
+}
+
 .choose-message {
   display: flex;
   flex-direction: column;
@@ -56,7 +60,7 @@ label {
   width: 112%;
 }
 
-.display-message {
+.message-display-box {
   background-color: #ffffff;
   color: #000000;
   border-radius: .3em;
@@ -66,7 +70,14 @@ label {
   padding: 3%;
 }
 
-.message-button {
+.button-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+button {
   background-color: #134d71;
   color: #ffffff;
   border-radius: .3em;
@@ -75,6 +86,20 @@ label {
   font-family: 'Quicksand', sans-serif;
   font-size: 1em;
   width: 37%;
+}
+
+.message-add-button {
+  width: 10%;
+  font-size: .7em;
+  padding: 0.3em;
+  margin: 1%;
+  margin-top: 5%;
+}
+
+.user-input {
+  margin: 0;
+  margin-top: .7em;
+  width: 75%;
 }
 
 .message {
@@ -91,6 +116,41 @@ label {
 .bell-image {
   margin-top: -1%;
   height: 3em;
+}
+
+.add-message-form {
+  font-size: .7em;
+  font-style: italic;
+  margin-top: -6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#submit-button {
+  font-size: .7em;
+  padding: .3em;
+  margin: 1%;
+  margin-top: 5%;
+  width: 10%;
+}
+#resubmit-button {
+  font-size: .7em;
+  padding: .3em;
+  margin: 1%;
+  margin-top: 5%;
+  width: 10%;
+}
+p {
+  color: red;
+  font-size: .6em;
+}
+.type-error {
+  margin-top: -5%;
+}
+
+.message-error {
+  margin-top: -2%;
 }
 /* COLORS
 light-yellow - #f7e4bf;

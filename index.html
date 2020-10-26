@@ -8,9 +8,9 @@
     <h3><span>&#10024;</span> Self Care Center <span>&#10024;</span></h3>
     <section class="choose-message">
       <h5>Which type of message?</h5>
-      <form class="message-choice-box">
+      <form id="user-form" class="message-choice-box">
         <section class="message-choices">
-          <input type="radio" id="affirmation" name="select-message" value="affirmation" checked>
+          <input type="radio" id="affirmation" name="select-message" value="affirmation">
           <label for="affirmation">affirmation</label>
           <input type="radio" id="mantra" name="select-message" value="mantra">
           <label for="mantra">mantra</label>
@@ -18,12 +18,20 @@
         <button class="message-button">Receive Message</button>
       </form>
     </section>
-    <section class="display-message">
+    <section class="message-display-box">
       <section class="bell">
       <img class="bell-image" src="file:///Users/connie/self-care-center/assets/meditate.svg" alt="bell image">
       </section>
       <section class="message">
       </section>
+      <form id="user-form" class="add-message-form hidden">
+        <input class="user-input" type="text" id="user-type" name="select-message-type" value="" placeholder="Is this an affirmation or mantra?">
+        <input class="user-input" type="text" id="user-message" name="user-message" value="" placeholder="Type your message">
+      </form>
+    </section>
+    <section class="button-box">
+      <button id="submit-button" class="submit-button hidden">Submit</button>
+      <button class="message-add-button">Add Message</button>
     </section>
   </body>
   <script type="text/javascript" src="main.js"></script>
