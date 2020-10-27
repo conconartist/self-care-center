@@ -3,7 +3,6 @@
 var affirmationSelection = document.querySelector("#affirmation");
 var mantraSelection = document.querySelector("#mantra");
 var messageDisplay = document.querySelector(".message");
-var messageDisplayBox = document.querySelector(".message-display-box")
 var bell = document.querySelector(".bell");
 var addMessageForm = document.querySelector(".add-message-form");
 var userType = document.querySelector("#user-type");
@@ -14,10 +13,12 @@ var messageBtn = document.querySelector(".message-button");
 var addMessageBtn = document.querySelector(".message-add-button");
 var submitBtn = document.querySelector(".submit-button");
 var deleteBtn = document.querySelector(".delete-button");
+
 //event listeners:
 messageBtn.addEventListener("click", generateMessage);
 addMessageBtn.addEventListener("click", addMessage);
 submitBtn.addEventListener("click", displayUserMessage);
+deleteBtn.addEventListener("click", deleteMessage);
 
 //global variables:
 var affirmations = [
@@ -66,6 +67,7 @@ function generateMessage() {
   event.preventDefault();
   displayMessage();
   hideBell();
+  showDeleteBtn();
 }
 
 function displayMessage() {
@@ -87,6 +89,7 @@ function addMessage() {
   hideMessageDisplay();
   showAddMessageForm();
   showSubmitBtn();
+  hideDeleteBtn();
 }
 
 function displayUserMessage() {
@@ -110,7 +113,6 @@ function checkUserType() {
 }
 
 function checkUserMessage() {
-  console.log("checkusermessage")
   if (userMessage.value === "") {
     messageDisplay.innerHTML = `<p class="message-error">Please type message in field</p>`;
     return false;
@@ -120,14 +122,7 @@ function checkUserMessage() {
   }
 }
 
-function hideForm() {
-  if(checkUserType !== false && checkUserMessage !== false) {
-    hideAddMessageForm();
-  }
-}
-
 function addUserMessage() {
-  console.log("addusermessage")
   if(userType.value == "affirmation") {
     affirmations.push(userMessage.value);
     messageDisplay.innerText = `${userMessage.value}`;
@@ -137,15 +132,28 @@ function addUserMessage() {
   }
 }
 
-function clearUserInput() {
-  console.log("clearinput");
-  userType.value = "";
-  userMessage.value = "";
+function deleteMessage() {
+  deleteMantra();
+  deleteAffirmation();
 }
 
-//function deleteMessage
-//if message === affirmation/mantra[i]
-//splice(i, 1)
+function deleteMantra() {
+  for (var i = 0; i < mantras.length; i++) {
+    if(messageDisplay.innerText === `${mantras[i]}`) {
+      mantras.splice(i, 1);
+      messageDisplay.innerHTML = `<p class="message-error">Your mantra has been deleted</p>`
+    }
+  }
+}
+
+function deleteAffirmation() {
+  for (var i = 0; i < affirmations.length; i++) {
+    if(messageDisplay.innerText === `${affirmations[i]}`) {
+      affirmations.splice(i, 1);
+      messageDisplay.innerHTML = `<p class="message-error">Your affirmation has been deleted</p>`
+    }
+  }
+}
 
 function hideBell() {
   bell.classList.add("hidden");
@@ -171,5 +179,11 @@ function hideMessageDisplay() {
   messageDisplay.classList.add("hidden");
 }
 function showSubmitBtn() {
-  submitBtn.classList.remove("hidden")
+  submitBtn.classList.remove("hidden");
+}
+function showDeleteBtn() {
+  deleteBtn.classList.remove("hidden");
+}
+function hideDeleteBtn() {
+  deleteBtn.classList.add("hidden");
 }
