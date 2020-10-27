@@ -54,9 +54,7 @@ label {
   color: #000000;
   padding: 3%;
   padding-bottom: 3%;
-  /* max-width: inherit; */
   display: flex;
-  /* justify-content: space-around; */
   width: 112%;
 }
 
@@ -88,12 +86,12 @@ button {
   width: 37%;
 }
 
-.message-add-button {
-  width: 10%;
+.button-box-buttons {
   font-size: .7em;
   padding: 0.3em;
   margin: 1%;
   margin-top: 5%;
+  width: 20%;
 }
 
 .user-input {
@@ -121,36 +119,20 @@ button {
 .add-message-form {
   font-size: .7em;
   font-style: italic;
-  margin-top: -6%;
+  margin-top: -4%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#submit-button {
-  font-size: .7em;
-  padding: .3em;
-  margin: 1%;
-  margin-top: 5%;
-  width: 10%;
-}
-#resubmit-button {
-  font-size: .7em;
-  padding: .3em;
-  margin: 1%;
-  margin-top: 5%;
-  width: 10%;
-}
-p {
-  color: red;
-  font-size: .6em;
-}
 .type-error {
+  color: red;
   margin-top: -5%;
 }
 
 .message-error {
-  margin-top: -2%;
+  color: red;
+  margin-top: 0%;
 }
 /* COLORS
 light-yellow - #f7e4bf;
